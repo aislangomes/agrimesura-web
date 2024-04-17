@@ -1,12 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&family=Poppins:ital,wght@0,400;0,700;1,300&family=Roboto:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
+  
+  <title>Cesar Gomes</title>
 </head>
 <body>
-    <h1>Ola mundo novo</h1>
-    
+  <div class="grid">
+    <div id="Yaxis"></div>
+    <div id="Xaxis"></div>
+    <img id="axis" src="assets/icons/axis.svg" alt="Eixo X Y">
+    <img id="terrain" src="assets/icons/terreno.svg" alt="Terreno">
+    </div>
+  </div>
+  
+  <div id="app">
+    <header>
+      <div class="content">
+        <div class="logo">
+          <h1>Cesar Gomes</h1>
+        </div>
+        <nav>
+          <ul>
+            <li><a href="">Projetos</a></li>
+            <li><a href="">Trabalho</a></li>
+            <li><a href="">Sobre mim</a></li>
+          </ul>
+        </nav>
+      </div>     
+    </header>
+    <main>
+      <div class="top">
+        <div class="cube"></div>
+        <div class="title">
+          <h1>Seu projeto começa aqui</h1>
+          <p>
+            Regulamente seu terrenodo forma rapída.<br>
+            Evite problemas futuros nas negociações.
+          </p>
+          <button>Fale Comigo</button>
+        </div>
+      </div>
+      <div class="middle">
+        <div class="theme">
+          <h1>Projetos</h1>
+          <img src="" alt="">
+          <p></p>
+        </div>
+        <div class="theme">
+          <h1>Trabalho</h1>
+          <img src="" alt="">
+          <p></p>
+        </div>
+        <div class="theme">
+          <h1>Sobre mim</h1>
+          <img src="" alt="">
+          <p></p>
+        </div>
+      </div>
+      <div class="contact">
+        <h1>Fale Comigo</h1>
+        <div class="contactsTypes">
+          <div class="fastEmail">
+            <h2>Email Rapido</h2>
+            <form action="" method="get">
+              <label for="nameInput"></label>
+              <input id="nameInput" type="text" placeholder="Nome">
+              <label for="emailInput"></label>
+              <input id="emailInput" type="email" placeholder="Email">
+              <textarea placeholder="Digite aqui sua ideia"></textarea>
+            </form>
+            <button>Enviar</button>
+          </div>
+          <div id="division"></div>
+          <div class="otherContacts">
+            <h2>Escolha outro forma de contato</h2>
+            <img src="" alt="">
+            <img src="" alt="">
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="fcontent">
+        <p>© 2024 Cesar Adilson Lopes Gomes</p>
+        <p>Desenvolvido por <span><a href="https://www.linkedin.com/in/aislangomes/">Aislan</a></span></p>
+      </div>      
+    </footer>
+  </div>
+  <script>
+    const bodyHeight = document.documentElement.scrollHeight
+    const footer = document.querySelector('footer')
+    const grid = document.querySelector(".grid")
+
+    const footerHeight = parseInt(window.getComputedStyle(footer).height, 10)
+
+    height = bodyHeight - footerHeight
+    grid.style.height = `${height}px`
+  </script>
 </body>
 </html>
