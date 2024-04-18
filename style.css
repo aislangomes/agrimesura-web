@@ -19,6 +19,18 @@
   --bg-input-filled: #D9D9D9;
 }
 
+.sr-only{
+  Position: Absolute;
+  Width: 1px;
+  Height: 1px;
+  Padding: 0;
+  Margin: -1px;
+  Overflow: Hidden;
+  Clip: rect(0, 0, 0, 0);
+  White-space: No-wrap;
+  Border-width: 0;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -43,10 +55,21 @@ body{
   width: 100%;
 }
 
-.grid #terrain{
-  height: 100%;
-  opacity: 0.1;
+.grid #iconCube {
+  position: absolute;
+  right: 20px;
+  top: 70px;
+  width: 15%;
+  height: auto;
 }
+
+/* .grid #terrain{
+  height: 100%;
+  width: auto;
+  object-fit: cover;
+  opacity: 0.1;
+  z-index: -2;
+} */
 
 .grid #axis {
   position: absolute;
@@ -83,6 +106,160 @@ header{
   background-color: var(--bg-borders);
 }
 
+header .content {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem .5rem;
+}
+
+nav{
+  display: none;
+}
+
+ul{
+  list-style-type: none;
+}
+
+main{
+  display: flex;
+  flex-direction: column;  
+  padding: 0 2rem;
+  gap: 10rem;
+  max-width: 155rem;
+}
+
+main .top{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top .title{
+  margin: 15rem 0;
+  font-family: 'Roboto'sans-serif;
+  text-align: center;
+}
+
+.title h1{
+  font-size: 4.8rem;
+  font-weight: bold;
+}
+
+.title p{
+  font-size: 2.4rem;
+  width: 70%;
+  margin: 3rem auto;
+}
+
+main .middle{
+  display: flex;
+  flex-direction: column;
+}
+
+.theme {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-background);
+  border: 1px solid white;
+}
+
+.theme h1{
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.theme img{
+  margin: 1rem auto;
+  max-width: 80%;
+}
+
+.theme p{
+  font-size: 2rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+main .contact, .contactsTypes, .fastEmail, form, .otherContacts{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact{
+  margin-bottom: 10rem;
+}
+.contact h1{
+  text-transform: uppercase;
+  font-size: 2.4rem;
+  letter-spacing: .2rem;
+}
+
+.contactsTypes{
+  gap: 2rem;
+}
+
+.fastEmail h2{
+  font-size: 2.4rem;
+  margin: 2rem auto 0;
+}
+
+.fastEmail{
+  width: 95%;
+}
+
+form{
+  width: 100%;
+}
+
+input, textarea{
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+  font-size: 2rem;
+  border: none;
+  padding: 1rem .5rem;
+  border-radius: .2rem;
+  background-color: var(--bg-input-empty);
+  width: 100%;
+  margin-top: 2rem;
+}
+
+textarea{
+  columns: 10; 
+  resize: none;
+  height: 264px;
+}
+
+input:valid{
+  background-color: var(--bg-input-filled);
+}
+
+.fastEmail button{
+  margin-top: 3rem;
+}
+
+.otherContacts{
+  margin: 4rem auto;
+}
+
+.otherContacts h2{
+  text-align: center;
+  width: 20rem;
+}
+
+.iconsContact img{
+  width: 8rem;
+  height: auto;
+  margin-top: 2rem;
+  margin-inline: 2rem;
+}
+
+
+
+/* 
 header .content{
   max-width: 150rem;
   width: 100%;
@@ -99,7 +276,6 @@ nav{
 }
 
 ul {
-  list-style-type: none;
   display: flex;
   flex-direction: row;
   gap: 5rem;
@@ -113,7 +289,7 @@ li a{
 
 main{
   width: 100%;
-  max-width: 155rem;
+
   padding: 5rem;
   margin: auto 0;
   display: flex;
@@ -125,42 +301,21 @@ main{
 main .top{
   height: 700px;
 }
-
 .top .title h1{
   font-weight:bold; 
   font-size: 4.8rem;
   margin-top: 5rem;
 }
+
 .title p {
   font-size: 2.4rem;
   text-wrap: wrap;
 
 }
 
+
 .top button{
   margin-top: 2rem;
-}
-
-main .middle{
-  display: flex;
-  flex-direction: column;
-}
-
-.theme h1{
-  margin-top: 1rem;
-  text-align: center;
-}
-
-.theme {
-  height: 45rem;
-  border: 1px solid white;
-}
-
-.contact{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 .contactsTypes{
@@ -170,43 +325,48 @@ main .middle{
   width: 100%;
 }
 
-.fastEmail{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
+
+form{
+  width: 100%;
+  width: 800px;
 }
 
 textarea{
   display: block;
+  width: 100%;
+  margin: 1rem 0;
 }
 
-input, textarea{
-  border: none;
-  border-radius: .2rem;
-  background-color: var(--bg-input-empty);
-
-
-}
 
 #division{
   width: 1px;
   height: 100px;
   background-color: white;
 }
-
+ */
 footer{
-  width: 100%;
   background-color: var(--bg-borders);
-  display: flex;
+  width: 100%;
 }
 
 footer .fcontent{
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
   padding: 2.4rem 0;
   margin: 0 auto;
-  display: flex;
   gap: 2rem
+}
+
+.fcontent p{
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 2.4rem;
+  text-align: center;
+}
+
+.otherContacts{
+  height: 100px;
 }
 
 button{

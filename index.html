@@ -9,15 +9,17 @@
   <link rel="stylesheet" href="style.css">
 
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&family=Poppins:ital,wght@0,400;0,700;1,300&family=Roboto:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
-  
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
   <title>Cesar Gomes</title>
 </head>
 <body>
   <div class="grid">
+    <img id="iconCube" src="assets/icons/cube.svg" alt="Cubo Simples">
     <div id="Yaxis"></div>
     <div id="Xaxis"></div>
     <img id="axis" src="assets/icons/axis.svg" alt="Eixo X Y">
-    <img id="terrain" src="assets/icons/terreno.svg" alt="Terreno">
+    <img id="terrain" src="assets/icons/terrain.svg" alt="Terreno">
     </div>
   </div>
   
@@ -38,31 +40,30 @@
     </header>
     <main>
       <div class="top">
-        <div class="cube"></div>
         <div class="title">
           <h1>Seu projeto começa aqui</h1>
           <p>
             Regulamente seu terrenodo forma rapída.<br>
             Evite problemas futuros nas negociações.
           </p>
-          <button>Fale Comigo</button>
         </div>
+        <button>Fale Comigo</button>
       </div>
       <div class="middle">
-        <div class="theme">
+        <div id="projects" class="theme">
           <h1>Projetos</h1>
-          <img src="" alt="">
+          <img src="assets/images/mapa1.png" alt="mapa 1">
           <p></p>
         </div>
-        <div class="theme">
+        <div id="work" class="theme">
           <h1>Trabalho</h1>
-          <img src="" alt="">
-          <p></p>
+          <img src="assets/images/mapa1.png" alt="mapa 1">
+          <p>Com uma abordagem avançada em topografia e o uso de ferramentas especializadas de alta qualidade, garantimos soluções precisas e confiáveis para mapeamento de terrenos e projetos de engenharia. Nossa equipe experiente oferece dados detalhados e análises abrangentes, proporcionando uma base sólida para o sucesso do seu empreendimento. Confie em nós para fornecer o conhecimento necessário e impulsionar a eficiência e segurança do seu projeto.</p>
         </div>
-        <div class="theme">
+        <div id="about" class="theme">
           <h1>Sobre mim</h1>
-          <img src="" alt="">
-          <p></p>
+          <img src="assets/images/mapa1.png" alt="mapa 1">
+          <p>Olá! Sou um profissional especializado em topografia, focado em fornecer soluções precisas e confiáveis para mapeamento de terrenos e projetos de engenharia. Com tecnologia avançada e ferramentas de alta qualidade, garanto dados detalhados para impulsionar a eficiência e segurança dos seus projetos. Estou aqui para ajudar a transformar suas ideias em realidade. Vamos trabalhar juntos para o sucesso do seu empreendimento!</p>
         </div>
       </div>
       <div class="contact">
@@ -70,28 +71,30 @@
         <div class="contactsTypes">
           <div class="fastEmail">
             <h2>Email Rapido</h2>
-            <form action="" method="get">
-              <label for="nameInput"></label>
-              <input id="nameInput" type="text" placeholder="Nome">
-              <label for="emailInput"></label>
-              <input id="emailInput" type="email" placeholder="Email">
-              <textarea placeholder="Digite aqui sua ideia"></textarea>
+            <form action="" method="get" id="formsToContact">
+              <label for="nameInput" class="sr-only">Nome</label>
+              <input id="nameInput" name="name" type="text" placeholder="Nome" required>
+              <label for="emailInput" class="sr-only">Email</label>
+              <input id="emailInput" type="email" name="email "placeholder="Email" required>
+              <textarea placeholder="Digite aqui sua ideia" required></textarea>
             </form>
-            <button>Enviar</button>
+            <button type="submit" form="formsToContact" value="submit">Enviar</button>
           </div>
           <div id="division"></div>
           <div class="otherContacts">
             <h2>Escolha outro forma de contato</h2>
-            <img src="" alt="">
-            <img src="" alt="">
+            <div class="iconsContact">
+              <img src="assets/icons/WhatsApp.svg" alt="Icone WhatsApp">
+              <img src="assets/icons/Email.svg" alt="Icone Email">
+            </div>
           </div>
         </div>
       </div>
     </main>
     <footer>
       <div class="fcontent">
-        <p>© 2024 Cesar Adilson Lopes Gomes</p>
-        <p>Desenvolvido por <span><a href="https://www.linkedin.com/in/aislangomes/">Aislan</a></span></p>
+        <p>© 2024<br> Cesar Adilson Lopes Gomes</p>
+        <p>Desenvolvido<br>por <a href="https://www.linkedin.com/in/aislangomes/">Aislan</a></p>
       </div>      
     </footer>
   </div>
