@@ -35,11 +35,6 @@ html {
   scroll-behavior: smooth;
 }
 
-a{
-  color: var(--font-color);
-  text-decoration: none;
-}
-
 body{
   background-image: url("assets/icons/grid.svg");
   background-color: var(--bg-background);
@@ -51,25 +46,32 @@ body{
 
 .grid{
   position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: -1;
-  width: 100%;
 }
 
 .grid #iconCube {
   position: absolute;
   right: 20px;
   top: 70px;
-  width: 15%;
+  width: 8rem;
   height: auto;
+  z-index: 2;
 }
 
-/* .grid #terrain{
+.grid #terrain{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 100%;
-  width: auto;
   object-fit: cover;
   opacity: 0.1;
   z-index: -2;
-} */
+}
 
 .grid #axis {
   position: absolute;
@@ -122,12 +124,19 @@ ul{
   list-style-type: none;
 }
 
+span {
+  cursor: pointer;
+  font-weight: bold;
+  letter-spacing: 0.3rem;
+  text-transform: uppercase;
+  color: var(--font-color);}
+
 main{
   display: flex;
   flex-direction: column;  
   padding: 0 2rem;
   gap: 10rem;
-  max-width: 155rem;
+  max-width: 130rem;
 }
 
 main .top{
@@ -171,18 +180,23 @@ main .middle{
   text-align: center;
 }
 
-.theme img{
+.themeContent{
+  display: flex;
+  flex-direction: column;
+}
+
+.themeContent img{
   margin: 1rem auto;
   max-width: 80%;
 }
 
-.theme p{
+.themeContent p{
   font-size: 2rem;
   padding: 2rem;
   text-align: center;
 }
 
-main .contact, .contactsTypes, .fastEmail, form, .otherContacts{
+main .contact, .contactsTypes, .fastEmail, .otherContacts{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -199,6 +213,7 @@ main .contact, .contactsTypes, .fastEmail, form, .otherContacts{
 }
 
 .contactsTypes{
+  width: 100%;
   gap: 2rem;
 }
 
@@ -208,11 +223,14 @@ main .contact, .contactsTypes, .fastEmail, form, .otherContacts{
 }
 
 .fastEmail{
-  width: 95%;
+  width: 90%;
 }
 
 form{
   width: 100%;
+  min-width: 40rem;
+  display: flex;
+  flex-direction: column;
 }
 
 input, textarea{
@@ -223,14 +241,18 @@ input, textarea{
   padding: 1rem .5rem;
   border-radius: .2rem;
   background-color: var(--bg-input-empty);
-  width: 100%;
   margin-top: 2rem;
+}
+
+input{
+  width: 100%;
 }
 
 textarea{
   columns: 10; 
   resize: none;
   height: 264px;
+  width: 100%;
 }
 
 input:valid{
@@ -250,100 +272,21 @@ input:valid{
   width: 20rem;
 }
 
+.iconsContact{
+  display: flex;
+  gap: 2rem;
+}
+
 .iconsContact img{
-  width: 8rem;
-  height: auto;
-  margin-top: 2rem;
-  margin-inline: 2rem;
+  width: auto;
+  height: 8rem;
 }
 
-
-
-/* 
-header .content{
-  max-width: 150rem;
-  width: 100%;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  padding: 1.6rem 2rem;
-  justify-content: space-between;
-}
-
-nav{
-  display: flex;
-  gap: 5rem;
-}
-
-ul {
-  display: flex;
-  flex-direction: row;
-  gap: 5rem;
-}
-
-li a{
-  text-transform: uppercase;
-  font-weight: bold;
-  letter-spacing: 0.3rem;
-}
-
-main{
-  width: 100%;
-
-  padding: 5rem;
-  margin: auto 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap:3rem;
-}
-
-main .top{
-  height: 700px;
-}
-.top .title h1{
-  font-weight:bold; 
-  font-size: 4.8rem;
-  margin-top: 5rem;
-}
-
-.title p {
-  font-size: 2.4rem;
-  text-wrap: wrap;
+.alternativeContact p{
+  display: none;
 
 }
 
-
-.top button{
-  margin-top: 2rem;
-}
-
-.contactsTypes{
-  display: flex;
-  justify-content: center;
-  gap: 10rem;
-  width: 100%;
-}
-
-
-form{
-  width: 100%;
-  width: 800px;
-}
-
-textarea{
-  display: block;
-  width: 100%;
-  margin: 1rem 0;
-}
-
-
-#division{
-  width: 1px;
-  height: 100px;
-  background-color: white;
-}
- */
 footer{
   background-color: var(--bg-borders);
   width: 100%;
@@ -365,9 +308,6 @@ footer .fcontent{
   text-align: center;
 }
 
-.otherContacts{
-  height: 100px;
-}
 
 button{
   border: none;
@@ -384,6 +324,7 @@ button{
 }
 
 button:hover{
+  cursor: pointer;
   filter: brightness(1.1);
 }
 
@@ -391,3 +332,158 @@ button:active{
   box-shadow: inset 2px 2px 2px 1px rgba(0, 0, 0, 0.4);
 }
 
+/* --------------------Desktop--------------------- */
+
+@media screen and (min-width: 1000px) {
+  header{
+    width: 100%;
+
+  }
+
+  header .content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 100rem;
+    margin: 0 auto;
+    padding: 1rem .5rem;
+  }
+  
+  nav{
+    display: flex;
+    gap: 5rem;
+  }
+  
+  ul {
+    display: flex;
+    flex-direction: row;
+    gap: 5rem;
+  }
+
+  li a{ 
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 0.3rem;
+  }
+
+  .middle .theme{
+    height: 45rem;
+
+  }
+
+  .themeContent{
+    flex-direction: row;
+    margin: auto 5rem;
+  }
+
+  .themeContent img{
+
+    max-height: 20rem;
+    width: auto;
+  }
+
+  .themeContent p{
+    font-size: 2.4rem;
+    text-align: left;
+
+  }
+
+  .contactsTypes{
+    flex-direction: row;
+    justify-content: center;
+    gap: 10rem;
+    width: 100%;
+  }
+
+  #division{
+    width: 1px;
+    height: 100%;
+    background-color: white;
+  }
+
+  .otherContacts{
+    margin: 0;
+    align-self: flex-start;
+  }
+
+  .iconsContact{
+    margin-top: 5rem;
+    flex-direction: column;
+    width: auto;
+
+  }
+
+  .alternativeContact p {
+    margin-left: 1rem;
+    font-size: 2rem;
+    display: block;
+  }
+
+  .alternativeContact img{
+    height: 5rem;
+  }
+
+  .alternativeContact {
+    display: flex;
+    align-items: center;
+  }
+
+  .infoInputs{
+    display: flex;
+    gap: 2rem;
+  
+  }
+
+  form input{
+    display: flex;
+  }
+
+  textarea{
+    display: block;
+  }
+
+  footer .fcontent{
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 2.4rem 0;
+  }
+ 
+  
+}
+
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  height: 90%;
+  width: auto;
+}
+
+.blockDisplay{
+  display: block;
+}

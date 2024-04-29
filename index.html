@@ -9,8 +9,8 @@
   <link rel="stylesheet" href="style.css">
 
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&family=Poppins:ital,wght@0,400;0,700;1,300&family=Roboto:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
-  <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
+  <script type="module" src="./src/main.js" defer></script>
   <title>Cesar Gomes</title>
 </head>
 <body>
@@ -22,6 +22,10 @@
     <img id="terrain" src="assets/icons/terrain.svg" alt="Terreno">
     </div>
   </div>
+
+  <div id="myModal" class="modal">
+    <img class="modal-content" id="img1">
+  </div>
   
   <div id="app">
     <header>
@@ -31,9 +35,9 @@
         </div>
         <nav>
           <ul>
-            <li><a href="">Projetos</a></li>
-            <li><a href="">Trabalho</a></li>
-            <li><a href="">Sobre mim</a></li>
+            <li><span id="projectsButton">Projetos</span></li>
+            <li><span id="worksButton">Trabalho</span></li>
+            <li><span id="aboutButton">Sobre mim</span></li>
           </ul>
         </nav>
       </div>     
@@ -47,23 +51,30 @@
             Evite problemas futuros nas negociações.
           </p>
         </div>
-        <button>Fale Comigo</button>
+        <button id="emailButton">Fale Comigo</button>
       </div>
       <div class="middle">
         <div id="projects" class="theme">
           <h1>Projetos</h1>
-          <img src="assets/images/mapa1.png" alt="mapa 1">
-          <p></p>
+          <div class="themeContent">
+            <img id="mapa1" src="assets/images/mapa1.png" alt="mapa 1" class="projectsImage">
+            <img id="mapa2" src="assets/images/mapa1.png" alt="mapa 2" class="projectsImage">
+            <img id="mapa3" src="assets/images/mapa1.png" alt="mapa 3" class="projectsImage">
+          </div>
         </div>
         <div id="work" class="theme">
           <h1>Trabalho</h1>
-          <img src="assets/images/mapa1.png" alt="mapa 1">
-          <p>Com uma abordagem avançada em topografia e o uso de ferramentas especializadas de alta qualidade, garantimos soluções precisas e confiáveis para mapeamento de terrenos e projetos de engenharia. Nossa equipe experiente oferece dados detalhados e análises abrangentes, proporcionando uma base sólida para o sucesso do seu empreendimento. Confie em nós para fornecer o conhecimento necessário e impulsionar a eficiência e segurança do seu projeto.</p>
+          <div class="themeContent">
+            <img src="assets/images/mapa1.png" alt="mapa 1">
+            <p>Com uma abordagem avançada em topografia e o uso de ferramentas especializadas de alta qualidade, garantimos soluções precisas e confiáveis para mapeamento de terrenos e projetos de engenharia. Nossa equipe experiente oferece dados detalhados e análises abrangentes, proporcionando uma base sólida para o sucesso do seu empreendimento. Confie em nós para fornecer o conhecimento necessário e impulsionar a eficiência e segurança do seu projeto.</p>
+          </div>
         </div>
         <div id="about" class="theme">
           <h1>Sobre mim</h1>
-          <img src="assets/images/mapa1.png" alt="mapa 1">
-          <p>Olá! Sou um profissional especializado em topografia, focado em fornecer soluções precisas e confiáveis para mapeamento de terrenos e projetos de engenharia. Com tecnologia avançada e ferramentas de alta qualidade, garanto dados detalhados para impulsionar a eficiência e segurança dos seus projetos. Estou aqui para ajudar a transformar suas ideias em realidade. Vamos trabalhar juntos para o sucesso do seu empreendimento!</p>
+          <div class="themeContent">
+            <img src="assets/images/mapa1.png" alt="mapa 1">
+            <p>Olá! Sou um profissional especializado em topografia, focado em fornecer soluções precisas e confiáveis para mapeamento de terrenos e projetos de engenharia. Com tecnologia avançada e ferramentas de alta qualidade, garanto dados detalhados para impulsionar a eficiência e segurança dos seus projetos. Estou aqui para ajudar a transformar suas ideias em realidade. Vamos trabalhar juntos para o sucesso do seu empreendimento!</p>
+          </div>
         </div>
       </div>
       <div class="contact">
@@ -71,21 +82,34 @@
         <div class="contactsTypes">
           <div class="fastEmail">
             <h2>Email Rapido</h2>
-            <form action="" method="get" id="formsToContact">
-              <label for="nameInput" class="sr-only">Nome</label>
-              <input id="nameInput" name="name" type="text" placeholder="Nome" required>
-              <label for="emailInput" class="sr-only">Email</label>
-              <input id="emailInput" type="email" name="email "placeholder="Email" required>
-              <textarea placeholder="Digite aqui sua ideia" required></textarea>
+            <form action="https://api.web3forms.com/submit" method="POST" method="get" id="formsToContact">
+              <div class="infoInputs">
+                <input type="hidden" name="access_key" value="b5de5ecb-c63d-4a85-8a31-5700b046bae1">
+                <label for="nameInput" class="sr-only">Nome</label>
+                <input id="nameInput" name="name" type="text" placeholder="Nome" required>
+                <label for="emailInput" class="sr-only">Email</label>
+                <input id="emailInput" type="email" name="email" placeholder="Email" required>
+              </div>
+              <textarea id="messageInput" placeholder="Digite aqui sua ideia" required></textarea>
             </form>
-            <button type="submit" form="formsToContact" value="submit">Enviar</button>
+            <button form="formsToContact" >Enviar</button>
           </div>
           <div id="division"></div>
           <div class="otherContacts">
             <h2>Escolha outro forma de contato</h2>
             <div class="iconsContact">
-              <img src="assets/icons/WhatsApp.svg" alt="Icone WhatsApp">
-              <img src="assets/icons/Email.svg" alt="Icone Email">
+              <div class="alternativeContact">
+                <a href="https://wa.me/5515997260425">
+                  <img src="assets/icons/WhatsApp.svg" alt="Icone WhatsApp">
+                </a>
+                <p>(15) 99726-0425</p>
+              </div>
+              <div class="alternativeContact">
+                <a href="mailto:cesaradilsonlg@gmail.com">
+                  <img src="assets/icons/Email.svg" alt="Icone Email">
+                </a>
+                  <p>cesaradilsonlg@gmail.com</p>
+                </div>
             </div>
           </div>
         </div>
@@ -99,14 +123,25 @@
     </footer>
   </div>
   <script>
+    function adjustBodyHeight() {
+    document.body.style.height = window.innerHeight + 'px';
+  }
+  
+  function reportWindowSize(){
     const bodyHeight = document.documentElement.scrollHeight
     const footer = document.querySelector('footer')
     const grid = document.querySelector(".grid")
-
+    
     const footerHeight = parseInt(window.getComputedStyle(footer).height, 10)
-
+    
     height = bodyHeight - footerHeight
     grid.style.height = `${height}px`
+  }
+
+  reportWindowSize()
+  window.onload = adjustBodyHeight;
+  window.onresize = adjustBodyHeight;
+  window.onresize = reportWindowSize
   </script>
 </body>
 </html>
